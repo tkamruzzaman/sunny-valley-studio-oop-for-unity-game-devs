@@ -3,18 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using WeaponSystem;
 
 public class Player : MonoBehaviour
 {
     public float speed = 2;
 
-    public float shootingDelay = 0.2f;
-    public bool shootingDelayed;
-
-    public GameObject projectile;
     public Transform playerShip;
-
-    public AudioSource gunAudio;
 
     public ScreenBounds screenBounds;
 
@@ -37,6 +32,8 @@ public class Player : MonoBehaviour
     public InGameMenu loseScreen;
     public Button menuButton;
 
+    [SerializeField]
+    private Weapon weapon;
 
     private void Awake()
     {
@@ -47,7 +44,7 @@ public class Player : MonoBehaviour
             lives.Add(item.GetComponent<Image>());
         }
     }
-    // Update is called once per frame
+
     void Update()
     {
         //get input and move
@@ -58,13 +55,13 @@ public class Player : MonoBehaviour
         //shooting
         if (Input.GetKey(KeyCode.Space))
         {
-            if(shootingDelayed == false)
-            {
-                shootingDelayed = true;
-                gunAudio.Play();
-                GameObject p = Instantiate(projectile, transform.position, Quaternion.identity);
-                StartCoroutine(DelayShooting());
-            }
+            weapon.PerformAttack();
+        }
+
+        //weapon swap
+        if(Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            weapon.SwapWeapon();
         }
     }
 
@@ -74,15 +71,9 @@ public class Player : MonoBehaviour
         if (screenBounds.AmIOutOfBounds(newPosition) == false)
         {
             rb2d.MovePosition(newPosition);
-            //transform.Translate(tempPosition - transform.position);
         }
     }
 
-    private IEnumerator DelayShooting()
-    {
-        yield return new WaitForSeconds(shootingDelay);
-        shootingDelayed = false;
-    }
 
     public void ReduceLives()
     {
@@ -112,7 +103,6 @@ public class Player : MonoBehaviour
             hitSource.PlayOneShot(hitClip);
         }
     }
-
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
