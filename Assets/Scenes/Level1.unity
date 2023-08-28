@@ -242,18 +242,6 @@ MonoBehaviour:
   ExitTriggerFired:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: BoundsWrapper, Assembly-CSharp
-        m_MethodName: TestColliderForWrapping
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 226211434}
         m_TargetAssemblyTypeName: ScreeBoundsDestroyer, Assembly-CSharp
         m_MethodName: TestColliderDestruction
@@ -1059,6 +1047,63 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 154223a554e4e8740b7134d94d0701f2, type: 3}
+--- !u!1001 &577477817909544408
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1079255381596192453, guid: 7193dd5319e80644781629a8201d2ed2, type: 3}
+      propertyPath: m_Name
+      value: Meteorite
+      objectReference: {fileID: 0}
+    - target: {fileID: 1079255381596192454, guid: 7193dd5319e80644781629a8201d2ed2, type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1079255381596192454, guid: 7193dd5319e80644781629a8201d2ed2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1079255381596192454, guid: 7193dd5319e80644781629a8201d2ed2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.62
+      objectReference: {fileID: 0}
+    - target: {fileID: 1079255381596192454, guid: 7193dd5319e80644781629a8201d2ed2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1079255381596192454, guid: 7193dd5319e80644781629a8201d2ed2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1079255381596192454, guid: 7193dd5319e80644781629a8201d2ed2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1079255381596192454, guid: 7193dd5319e80644781629a8201d2ed2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1079255381596192454, guid: 7193dd5319e80644781629a8201d2ed2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1079255381596192454, guid: 7193dd5319e80644781629a8201d2ed2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1079255381596192454, guid: 7193dd5319e80644781629a8201d2ed2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1079255381596192454, guid: 7193dd5319e80644781629a8201d2ed2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7193dd5319e80644781629a8201d2ed2, type: 3}
 --- !u!1001 &677942816917983899
 PrefabInstance:
   m_ObjectHideFlags: 0
