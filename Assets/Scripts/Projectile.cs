@@ -1,9 +1,8 @@
-using System;
+using HealthSystem;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Projectile : MonoBehaviour, IHittable
+public class Projectile : MonoBehaviour
 {
     public float speed = 10;
     public Rigidbody2D rb2d;
@@ -11,8 +10,18 @@ public class Projectile : MonoBehaviour, IHittable
 
     public bool disabled = false;
 
+    private int initialHealthValue = 1;
+
+    private Health health;
+
+    private void Awake()
+    {
+        health = GetComponent<Health>();
+    }
+
     void Start()
     {
+        health.InitializeHealth(initialHealthValue);
         rb2d.velocity = transform.up * speed;
         StartCoroutine(DeathAfterDelay(deathDelay));
     }
@@ -20,22 +29,23 @@ public class Projectile : MonoBehaviour, IHittable
     private IEnumerator DeathAfterDelay(float deathDelay)
     {
         yield return new WaitForSeconds(deathDelay);
-        Destroy(gameObject);
+        Death();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         IHittable hittable = collision.GetComponent<IHittable>();
 
-        if (hittable != null)
+        if(hittable != null)
         {
             hittable.GetHit(1, gameObject);
-            GetHit(1, gameObject);
+            Death();
         }
     }
 
-    public void GetHit(int damageValue, GameObject sender)
+    private void Death()
     {
+        health.GetHit(1, gameObject);
         Destroy(gameObject);
     }
 }

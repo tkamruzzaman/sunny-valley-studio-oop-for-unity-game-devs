@@ -56,7 +56,7 @@ public class Enemy : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb2d.MovePosition(rb2d.position + Vector2.down * speed*Time.deltaTime);
+        rb2d.MovePosition(rb2d.position + Vector2.down * speed * Time.deltaTime);
     }
     private IEnumerator ShootWithDelay(float shootingDelay)
     {
@@ -67,18 +67,18 @@ public class Enemy : MonoBehaviour
         }
         yield return new WaitForSeconds(shootingDelay);
         GameObject p = Instantiate(projectile, transform.position, transform.rotation);
-        
+
         isShooting = false;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        IHittable hittable =collision.GetComponent<IHittable>();
-        if (hittable !=null && collision.GetComponent<Player>())
+        IHittable hittable = collision.GetComponent<IHittable>();
+        if (hittable != null && collision.GetComponent<Player>())
         {
             hittable.GetHit(1, gameObject);
             Death();
-        }          
+        }
     }
 
     public void EnemyKilledOutsideBounds()
